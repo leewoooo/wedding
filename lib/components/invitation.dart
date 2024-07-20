@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:wedding/components/gap.dart';
+import 'package:wedding/components/commons/gap.dart';
 import 'package:wedding/components/header_text.dart';
+import 'package:wedding/constants/color.dart';
 
 class Invitation extends StatelessWidget {
   final String backgroundImage = 'assets/images/paper_background_2.jpg';
@@ -20,7 +21,10 @@ class Invitation extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const HeaderText(text: 'INVITATION'),
+          const HeaderText(
+            text: 'INVITATION',
+            color: PRIMARY_COLOR,
+          ),
           Gap.h32,
           const _ThanksText(),
           const _SubImage(),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wedding/components/header_text.dart';
+import 'package:wedding/constants/color.dart';
 
 class Location extends StatelessWidget {
   const Location({super.key});
@@ -15,6 +16,7 @@ class Location extends StatelessWidget {
         children: [
           HeaderText(
             text: 'LOCATION',
+            color: PRIMARY_COLOR,
           ),
         ],
       ),

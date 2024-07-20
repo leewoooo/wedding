@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:wedding/components/gap.dart';
+import 'package:wedding/components/calendar.dart';
+import 'package:wedding/components/commons/gap.dart';
 import 'package:wedding/components/invitation.dart';
 import 'package:wedding/components/location.dart';
 import 'package:wedding/components/welcome.dart';
 import 'package:wedding/layouts/web_app_layout.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await initializeDateFormatting();
+
   runApp(const MyApp());
 }
 
@@ -42,6 +48,7 @@ class Home extends StatelessWidget {
             const _MainImage(),
             const Invitation(),
             const Location(),
+            const Calendar(),
           ],
         ),
       ),
