@@ -126,6 +126,102 @@ class Location extends StatelessWidget {
               ),
             ),
           ),
+          Gap.h16,
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 32.0,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '주차 안내',
+                  style: defaultTextStyle.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16.0,
+                  ),
+                ),
+                Gap.h8,
+                const Text(
+                  '테크노마트 지하주차장 이용(B3~B7)',
+                ),
+                Gap.h16,
+                Text(
+                  '지하철 이용시',
+                  style: defaultTextStyle.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16.0,
+                  ),
+                ),
+                Gap.h8,
+                const Text(
+                  '1호선 2호선 신도림역',
+                ),
+                Gap.h4,
+                const Text(
+                  '(신도림역 3번출구 테크노마트 판매동 지하1층과 직접 연결)',
+                ),
+                Gap.h16,
+                Text(
+                  '버스 이용 시',
+                  style: defaultTextStyle.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16.0,
+                  ),
+                ),
+                Gap.h8,
+                Text(
+                  '신도림역 (17-102)정류장 하차',
+                  style: defaultTextStyle.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Gap.h4,
+                const Text(
+                  '(지하철 신도림역 3번출구 쪽)',
+                ),
+                Gap.h8,
+                const Text(
+                  '지선 : 5619, 6411, 6511, 6611',
+                ),
+                Gap.h4,
+                const Text(
+                  '직행 : 5200',
+                ),
+                Gap.h4,
+                const Text(
+                  '마을 : 영등포09, 영등포12, 영등포13',
+                ),
+                Gap.h16,
+                Text(
+                  '신도림역 (17-001)정류장 하차',
+                  style: defaultTextStyle.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Gap.h4,
+                const Text(
+                  '(지하철 신도림역 1번출구 쪽 하차 후 지하보도 이용하여 지하철 3번출구 방면 으로 이동)',
+                ),
+                Gap.h8,
+                const Text(
+                  '간선 : 160, 503, 600, 660,662',
+                ),
+                Gap.h4,
+                const Text(
+                  '지선 : 5615, 5714, 6512, 6515, 6516 6637, 6640A, 6713',
+                ),
+                Gap.h4,
+                const Text(
+                  '직행 : 301, 320',
+                ),
+                Gap.h4,
+                const Text(
+                  '일반 : 10, 11-1, 11-2, 83, 88, 530',
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
