@@ -14,6 +14,12 @@ class AccountTileModel {
 
 List<AccountTileModel> groomFamilyInfo = [
   AccountTileModel(
+    relationship: '♥',
+    name: '이우길',
+    bankName: '토스',
+    accountNumber: '1000-0244-5710',
+  ),
+  AccountTileModel(
       relationship: '부',
       name: '이필주',
       bankName: '국민',
@@ -24,15 +30,15 @@ List<AccountTileModel> groomFamilyInfo = [
     bankName: '신한',
     accountNumber: '110-354-109855',
   ),
-  AccountTileModel(
-    relationship: '♥',
-    name: '이우길',
-    bankName: '토스',
-    accountNumber: '1000-0244-5710',
-  ),
 ];
 
 List<AccountTileModel> brideFamilyInfo = [
+  AccountTileModel(
+    relationship: '♥',
+    name: '임은하',
+    bankName: '국민',
+    accountNumber: '457002-01-388327',
+  ),
   AccountTileModel(
       relationship: '부',
       name: '임동철',
@@ -43,11 +49,5 @@ List<AccountTileModel> brideFamilyInfo = [
     name: '오주지',
     bankName: '은행',
     accountNumber: 'xxx-xxx-xxxxxx',
-  ),
-  AccountTileModel(
-    relationship: '♥',
-    name: '임은하',
-    bankName: '국민',
-    accountNumber: '457002-01-388327',
   ),
 ];

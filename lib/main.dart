@@ -4,6 +4,7 @@ import 'package:wedding/components/calendar.dart';
 import 'package:wedding/components/commons/gap.dart';
 import 'package:wedding/components/contact.dart';
 import 'package:wedding/components/invitation.dart';
+import 'package:wedding/components/location.dart';
 import 'package:wedding/components/welcome.dart';
 import 'package:wedding/layouts/web_app_layout.dart';
 
@@ -47,6 +48,7 @@ class Home extends StatelessWidget {
             const WelcomeWidget(),
             const _MainImage(),
             const Invitation(),
+            const Location(),
             const Contact(),
             const Calendar(),
           ],

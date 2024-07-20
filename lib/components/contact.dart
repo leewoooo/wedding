@@ -189,6 +189,7 @@ class _AccountTile extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 showCloseIcon: true,
+                closeIconColor: Colors.white,
                 content: Text('계좌번호가 복사되었습니다.'),
               ),
             );
