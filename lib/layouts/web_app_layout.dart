@@ -18,7 +18,7 @@ class WebAppLayout extends StatelessWidget {
             child: ConstrainedBox(
               constraints: BoxConstraints(
                 maxWidth: 430,
-                minWidth: 375,
+                minWidth: 344,
                 minHeight: MediaQuery.of(context).size.height,
               ),
               child: Scaffold(

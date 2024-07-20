@@ -117,10 +117,10 @@ class CustomTableCalendar extends StatelessWidget {
         ),
       ),
       outsideBuilder: (context, day, focusedDay) => Center(
-        child: defaultDayText(day, color: GREY_TEXT_COLOR),
+        child: defaultDayText(day, color: GREY_COLOR),
       ),
       disabledBuilder: (context, day, focusedDay) => Center(
-        child: defaultDayText(day, color: GREY_TEXT_COLOR),
+        child: defaultDayText(day, color: GREY_COLOR),
       ),
     );
   }
