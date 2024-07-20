@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wedding/components/gap.dart';
-import 'package:wedding/components/header_text.dart';
 import 'package:wedding/components/invitation.dart';
 import 'package:wedding/components/location.dart';
 import 'package:wedding/components/welcome.dart';
