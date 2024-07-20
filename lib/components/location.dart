@@ -126,7 +126,6 @@ class Location extends StatelessWidget {
               ),
             ),
           ),
-          Gap.h16,
           Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 32.0,
@@ -171,7 +170,7 @@ class Location extends StatelessWidget {
                 ),
                 Gap.h8,
                 Text(
-                  '신도림역 (17-102)정류장 하차',
+                  '신도림역 (17-102) 정류장 하차',
                   style: defaultTextStyle.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -194,7 +193,7 @@ class Location extends StatelessWidget {
                 ),
                 Gap.h16,
                 Text(
-                  '신도림역 (17-001)정류장 하차',
+                  '신도림역 (17-001) 정류장 하차',
                   style: defaultTextStyle.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
