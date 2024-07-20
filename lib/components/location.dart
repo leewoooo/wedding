@@ -1,18 +1,32 @@
+import 'dart:html' as html;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wedding/components/commons/gap.dart';
 import 'package:wedding/components/header_text.dart';
 import 'package:wedding/constants/color.dart';
-import 'dart:html' as html;
 
 class Location extends StatelessWidget {
   const Location({super.key});
 
   @override
   Widget build(BuildContext context) {
+    const defaultTextStyle = TextStyle(
+      color: Colors.black,
+    );
+
     const addressName = '서울특별시 구로구 새말로 97';
-    const address =
+    const naverAddress =
         'https://map.naver.com/p/directions/-/14125329.418654,4510050.8743174,%ED%85%8C%ED%81%AC%EB%85%B8%EB%A7%88%ED%8A%B8%20%EC%9B%A8%EB%94%A9%EC%8B%9C%ED%8B%B0,12867934,PLACE_POI/-/transit?c=15.00,0,0,0,dh';
+    onTapNaverMap() => html.window.open(naverAddress, 'new tab');
+
+    const kakaoAddress =
+        'https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,475734,1113230&rt1=&rt2=%EC%9B%A8%EB%94%A9%EC%8B%9C%ED%8B%B0%20%EC%8B%A0%EB%8F%84%EB%A6%BC%EC%A0%90&rtIds=,326511102';
+    onTapKakaoMap() => html.window.open(kakaoAddress, 'new tab');
+
+    const googleAddress =
+        'https://www.google.co.kr/maps/dir//%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C+%EA%B5%AC%EB%A1%9C%EA%B5%AC+%EC%83%88%EB%A7%90%EB%A1%9C+97+%EC%9B%A8%EB%94%A9%EC%8B%9C%ED%8B%B0+%EC%8B%A0%EB%8F%84%EB%A6%BC%EC%A0%90/data=!4m8!4m7!1m0!1m5!1m1!1s0x357c9e6937008aa5:0x264f4474edc5342a!2m2!1d126.8902185!2d37.5070431?hl=ko&entry=ttu';
+    onTapGoogleMap() => html.window.open(googleAddress, 'new tab');
 
     return Container(
       color: Colors.white,
@@ -56,17 +70,59 @@ class Location extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () {
-              html.window.open(address, 'new tab');
-            },
+            onTap: onTapNaverMap,
             child: Padding(
               padding: const EdgeInsets.all(32.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16.0),
-                child: Image.asset(
-                  'assets/images/asset_03.png',
-                  fit: BoxFit.cover,
-                ),
+              child: Column(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(16.0),
+                    child: Image.asset(
+                      'assets/images/asset_03.png',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  Gap.h16,
+                  IntrinsicHeight(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: InkWell(
+                            onTap: onTapKakaoMap,
+                            child: const Text(
+                              '카카오 맵',
+                              textAlign: TextAlign.center,
+                              style: defaultTextStyle,
+                            ),
+                          ),
+                        ),
+                        const VerticalDivider(),
+                        Expanded(
+                          child: InkWell(
+                            onTap: onTapNaverMap,
+                            child: const Text(
+                              '네이버 지도',
+                              textAlign: TextAlign.center,
+                              style: defaultTextStyle,
+                            ),
+                          ),
+                        ),
+                        const VerticalDivider(),
+                        Expanded(
+                          child: InkWell(
+                            onTap: onTapGoogleMap,
+                            child: const Text(
+                              '구글 맵',
+                              textAlign: TextAlign.center,
+                              style: defaultTextStyle,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
               ),
             ),
           ),
