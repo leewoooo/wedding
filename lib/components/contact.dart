@@ -19,10 +19,10 @@ class Contact extends StatelessWidget {
       child: Column(
         children: [
           const HeaderText(
-            text: 'CONTACT',
+            text: '마음 전하기',
             color: PRIMARY_COLOR,
           ),
-          Gap.h32,
+          Gap.h16,
           const _UnderstandingText(),
           Gap.h32,
           _FamilyContact(
@@ -95,6 +95,7 @@ class _FamilyContact extends StatelessWidget {
                 style: defaultTextStyle.copyWith(
                   fontWeight: FontWeight.bold,
                   fontSize: 10.0,
+                  color: PRIMARY_COLOR,
                 ),
                 children: [
                   TextSpan(

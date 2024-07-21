@@ -18,9 +18,18 @@ class Footer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Text(
-            '화환은 정중히 사양하겠습니다.\n축하해주시는 마음만 감사히 받겠습니다.',
-            textAlign: TextAlign.center,
+          Column(
+            children: [
+              Image.asset(
+                'assets/icons/icon_1.png',
+                width: 30.0,
+              ),
+              Gap.h4,
+              const Text(
+                '화환은 정중히 사양하겠습니다.\n축하해주시는 마음만 감사히 받겠습니다.',
+                textAlign: TextAlign.center,
+              ),
+            ],
           ),
           Gap.h16,
           const Divider(),

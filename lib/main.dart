@@ -4,10 +4,9 @@ import 'package:wedding/components/calendar.dart';
 import 'package:wedding/components/commons/gap.dart';
 import 'package:wedding/components/contact.dart';
 import 'package:wedding/components/footer.dart';
-import 'package:wedding/components/header2.dart';
+import 'package:wedding/components/header.dart';
 import 'package:wedding/components/invitation.dart';
 import 'package:wedding/components/location.dart';
-import 'package:wedding/components/header.dart';
 import 'package:wedding/layouts/web_app_layout.dart';
 
 void main() async {
@@ -47,7 +46,7 @@ class Home extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Gap.h16,
-            const Header2(),
+            const Header(),
             const _MainImage(),
             const Invitation(),
             const Location(),

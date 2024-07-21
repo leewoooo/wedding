@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wedding/components/commons/gap.dart';
 import 'package:wedding/components/commons/header_text.dart';
@@ -23,39 +22,13 @@ class Invitation extends StatelessWidget {
       child: Column(
         children: [
           const HeaderText(
-            text: 'INVITATION',
+            text: '초대합니다',
             color: PRIMARY_COLOR,
           ),
-          Gap.h32,
+          Gap.h16,
           const _ThanksText(),
           const _SubImage(),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: IntrinsicHeight(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Expanded(
-                    child: _HeroInfo(
-                      division: '신랑',
-                      name: '이우길',
-                      familyInfo: '이필주 · 송효숙 의 장남',
-                    ),
-                  ),
-                  VerticalDivider(
-                    color: Colors.black,
-                  ),
-                  Expanded(
-                    child: _HeroInfo(
-                      division: '신부',
-                      name: '임은하',
-                      familyInfo: '임동철 · 오주지 의 차녀',
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          const _HeroInfos(),
         ],
       ),
     );
@@ -96,19 +69,33 @@ class _ThanksText extends StatelessWidget {
   }
 }
 
-class _SubImage extends StatelessWidget {
-  const _SubImage();
+class _HeroInfos extends StatelessWidget {
+  const _HeroInfos();
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(32.0),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(16.0),
-        child: Image.asset(
-          'assets/images/asset_01.jpg',
-          fit: BoxFit.cover,
-        ),
+    return const IntrinsicHeight(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Expanded(
+            child: _HeroInfo(
+              division: '신랑',
+              name: '이우길',
+              familyInfo: '이필주 · 송효숙 의 장남',
+            ),
+          ),
+          VerticalDivider(
+            color: Colors.black,
+          ),
+          Expanded(
+            child: _HeroInfo(
+              division: '신부',
+              name: '임은하',
+              familyInfo: '임동철 · 오주지 의 차녀',
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -160,6 +147,24 @@ class _HeroInfo extends StatelessWidget {
           ),
         )
       ],
+    );
+  }
+}
+
+class _SubImage extends StatelessWidget {
+  const _SubImage();
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(32.0),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16.0),
+        child: Image.asset(
+          'assets/images/asset_01.jpg',
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 }

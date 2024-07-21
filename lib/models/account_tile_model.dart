@@ -42,12 +42,12 @@ List<AccountTileModel> brideFamilyInfo = [
   AccountTileModel(
       relationship: '부',
       name: '임동철',
-      bankName: '은행',
-      accountNumber: 'xxxxxx-xx-xxxxxx'),
+      bankName: '우리',
+      accountNumber: '1002-905-256550'),
   AccountTileModel(
     relationship: '모',
     name: '오주지',
-    bankName: '은행',
-    accountNumber: 'xxx-xxx-xxxxxx',
+    bankName: '국민',
+    accountNumber: '438902-01-154947',
   ),
 ];
