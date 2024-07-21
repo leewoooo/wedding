@@ -10,11 +10,8 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey[100],
-      padding: const EdgeInsets.symmetric(
-        horizontal: 32.0,
-        vertical: 32.0,
-      ),
+      color: Colors.white,
+      padding: const EdgeInsets.all(32.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [

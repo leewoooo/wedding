@@ -10,9 +10,7 @@ class Invitation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        vertical: 32.0,
-      ),
+      padding: const EdgeInsets.all(32.0),
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(backgroundImage),
@@ -157,7 +155,9 @@ class _SubImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(32.0),
+      padding: const EdgeInsets.symmetric(
+        vertical: 32.0,
+      ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16.0),
         child: Image.asset(

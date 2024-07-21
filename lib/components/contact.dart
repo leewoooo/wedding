@@ -11,11 +11,8 @@ class Contact extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey[100],
-      padding: const EdgeInsets.symmetric(
-        vertical: 32.0,
-        horizontal: 32.0,
-      ),
+      color: Colors.white,
+      padding: const EdgeInsets.all(32.0),
       child: Column(
         children: [
           const HeaderText(
