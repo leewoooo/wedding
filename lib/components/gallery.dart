@@ -24,12 +24,11 @@ class Gallery extends StatelessWidget {
             mainAxisSpacing: 12.0,
             crossAxisSpacing: 12.0,
             childAspectRatio: 3 / 2,
-            children: List<int>.generate(15, (int index) => index + 1).map(
-              (index) {
-                final asset = 'assets/images/grid_asset_$index.jpeg';
-                return _GalleryImage(asset: asset);
-              },
-            ).toList(),
+            children: List<int>.generate(15, (int index) => index + 1)
+                .map(
+                  (index) => _GalleryImage(index: index),
+                )
+                .toList(),
           )
         ],
       ),
@@ -38,16 +37,32 @@ class Gallery extends StatelessWidget {
 }
 
 class _GalleryImage extends StatelessWidget {
-  final String asset;
+  final int index;
   const _GalleryImage({
-    required this.asset,
+    required this.index,
   });
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(8.0),
-      child: Image.asset(asset, fit: BoxFit.cover),
+    final asset = 'assets/images/grid_asset_$index.jpeg';
+    return InkWell(
+      onTap: () {
+        showDialog(
+          context: context,
+          useRootNavigator: true,
+          barrierLabel: 'barrierLabel',
+          barrierDismissible: true,
+          builder: (context) {
+            return Dialog(
+              child: Image.asset(asset),
+            );
+          },
+        );
+      },
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8.0),
+        child: Image.asset(asset, fit: BoxFit.cover),
+      ),
     );
   }
 }
