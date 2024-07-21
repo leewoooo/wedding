@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wedding/components/commons/gap.dart';
-import 'package:wedding/components/header_text.dart';
+import 'package:wedding/components/commons/header_text.dart';
 import 'package:wedding/constants/color.dart';
 import 'package:wedding/models/account_tile_model.dart';
 
@@ -35,7 +35,7 @@ class Contact extends StatelessWidget {
             division: '신부',
             name: '임은하',
             accountInfoList: brideFamilyInfo,
-          )
+          ),
         ],
       ),
     );

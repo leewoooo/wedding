@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wedding/components/commons/custom_table_calendar.dart';
 import 'package:wedding/components/commons/gap.dart';
-import 'package:wedding/components/header_text.dart';
+import 'package:wedding/components/commons/header_text.dart';
 import 'package:wedding/constants/color.dart';
 
 class Calendar extends StatelessWidget {

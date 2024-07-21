@@ -55,6 +55,7 @@ class Footer extends StatelessWidget {
                 const Icon(
                   CupertinoIcons.link,
                   size: 16.0,
+                  color: Colors.white,
                 ),
                 Gap.w8,
                 const Padding(
@@ -62,7 +63,7 @@ class Footer extends StatelessWidget {
                     vertical: 16.0,
                   ),
                   child: Text(
-                    '결혼식 링크 복사',
+                    '청첩장 링크 복사',
                   ),
                 ),
               ],

@@ -1,6 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wedding/components/commons/gap.dart';
-import 'package:wedding/components/header_text.dart';
+import 'package:wedding/components/commons/header_text.dart';
 import 'package:wedding/constants/color.dart';
 
 class Invitation extends StatelessWidget {
