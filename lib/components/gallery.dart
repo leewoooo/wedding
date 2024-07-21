@@ -18,6 +18,7 @@ class Gallery extends StatelessWidget {
           ),
           Gap.h16,
           GridView.count(
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             crossAxisCount: 3,
             mainAxisSpacing: 12.0,
