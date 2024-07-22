@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:wedding/components/commons/gap.dart';
 import 'package:wedding/components/commons/header_text.dart';
 import 'package:wedding/constants/color.dart';
@@ -27,6 +29,8 @@ class Invitation extends StatelessWidget {
           const _ThanksText(),
           const _SubImage(),
           const _HeroInfos(),
+          Gap.h32,
+          const _ContactButton(),
         ],
       ),
     );
@@ -165,6 +169,138 @@ class _SubImage extends StatelessWidget {
           fit: BoxFit.cover,
         ),
       ),
+    );
+  }
+}
+
+class _ContactButton extends StatelessWidget {
+  const _ContactButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Builder(builder: (context) {
+          return FilledButton(
+            style: FilledButton.styleFrom(
+              backgroundColor: PRIMARY_COLOR,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+            ),
+            onPressed: () {
+              showCupertinoDialog(
+                useRootNavigator: true,
+                barrierDismissible: true,
+                context: context,
+                builder: (context) {
+                  return Dialog(
+                    child: Container(
+                      constraints: const BoxConstraints(
+                        maxWidth: 430,
+                        minWidth: 344,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[100],
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      padding: const EdgeInsets.all(
+                        16.0,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Text(
+                            '연락하기',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16.0,
+                              color: PRIMARY_COLOR,
+                            ),
+                          ),
+                          const Divider(),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8.0,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Expanded(
+                                  child: Text(
+                                    '신랑',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: PRIMARY_COLOR,
+                                    ),
+                                  ),
+                                ),
+                                const Expanded(
+                                  child: Text(
+                                    '이우길',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      InkWell(
+                                        onTap: () async {
+                                          final Uri telLaunchUri = Uri(
+                                            scheme: 'sms',
+                                            path: '01066832285',
+                                          );
+                                          await launchUrl(telLaunchUri);
+                                        },
+                                        child: const Icon(
+                                          Icons.mail_rounded,
+                                          color: PRIMARY_COLOR,
+                                        ),
+                                      ),
+                                      MediaQuery.of(context).size.width > 350
+                                          ? Gap.w16
+                                          : Gap.w8,
+                                      InkWell(
+                                        onTap: () async {
+                                          final Uri telLaunchUri = Uri(
+                                            scheme: 'tel',
+                                            path: '01066832285',
+                                          );
+                                          await launchUrl(telLaunchUri);
+                                        },
+                                        child: const Icon(
+                                          Icons.phone,
+                                          color: PRIMARY_COLOR,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
+            child: const Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: 16.0,
+              ),
+              child: Text('연락하기'),
+            ),
+          );
+        }),
+      ],
     );
   }
 }
