@@ -54,7 +54,11 @@ class _GalleryImage extends StatelessWidget {
           barrierDismissible: true,
           builder: (context) {
             return Dialog(
-              child: Image.asset(asset),
+              child: Image.asset(
+                asset,
+                fit: BoxFit.cover,
+                filterQuality: FilterQuality.high,
+              ),
             );
           },
         );

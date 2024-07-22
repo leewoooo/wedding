@@ -1,7 +1,6 @@
-import 'dart:html' as html;
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:wedding/components/commons/gap.dart';
 import 'package:wedding/components/commons/header_text.dart';
 import 'package:wedding/constants/color.dart';
@@ -181,15 +180,15 @@ class _Map extends StatelessWidget {
 
     const naverAddress =
         'https://map.naver.com/p/directions/-/14125329.418654,4510050.8743174,%ED%85%8C%ED%81%AC%EB%85%B8%EB%A7%88%ED%8A%B8%20%EC%9B%A8%EB%94%A9%EC%8B%9C%ED%8B%B0,12867934,PLACE_POI/-/transit?c=15.00,0,0,0,dh';
-    onTapNaverMap() => html.window.open(naverAddress, 'new tab');
+    onTapNaverMap() async => await launchUrl(Uri.parse(naverAddress));
 
     const kakaoAddress =
         'https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,475734,1113230&rt1=&rt2=%EC%9B%A8%EB%94%A9%EC%8B%9C%ED%8B%B0%20%EC%8B%A0%EB%8F%84%EB%A6%BC%EC%A0%90&rtIds=,326511102';
-    onTapKakaoMap() => html.window.open(kakaoAddress, 'new tab');
+    onTapKakaoMap() async => await launchUrl(Uri.parse(kakaoAddress));
 
     const googleAddress =
         'https://www.google.co.kr/maps/dir//%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C+%EA%B5%AC%EB%A1%9C%EA%B5%AC+%EC%83%88%EB%A7%90%EB%A1%9C+97+%EC%9B%A8%EB%94%A9%EC%8B%9C%ED%8B%B0+%EC%8B%A0%EB%8F%84%EB%A6%BC%EC%A0%90/data=!4m8!4m7!1m0!1m5!1m1!1s0x357c9e6937008aa5:0x264f4474edc5342a!2m2!1d126.8902185!2d37.5070431?hl=ko&entry=ttu';
-    onTapGoogleMap() => html.window.open(googleAddress, 'new tab');
+    onTapGoogleMap() async => await launchUrl(Uri.parse(googleAddress));
 
     return InkWell(
       onTap: onTapNaverMap,
