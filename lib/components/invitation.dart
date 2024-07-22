@@ -61,7 +61,7 @@ class _ThanksText extends StatelessWidget {
         ),
         Gap.h16,
         const Text(
-          '믿음의가정을 세워가는 첫 걸음,',
+          '믿음의 가정을 세워가는 첫 걸음,',
         ),
         Gap.h4,
         const Text(
@@ -316,7 +316,10 @@ class _AddressTile extends StatelessWidget {
                       scheme: 'sms',
                       path: phone,
                     );
-                    await launchUrl(telLaunchUri);
+                    await launchUrl(
+                      telLaunchUri,
+                      mode: LaunchMode.externalNonBrowserApplication,
+                    );
                   },
                   child: const Icon(
                     Icons.mail_rounded,
@@ -330,7 +333,10 @@ class _AddressTile extends StatelessWidget {
                       scheme: 'tel',
                       path: phone,
                     );
-                    await launchUrl(telLaunchUri);
+                    await launchUrl(
+                      telLaunchUri,
+                      mode: LaunchMode.externalNonBrowserApplication,
+                    );
                   },
                   child: const Icon(
                     Icons.phone,
