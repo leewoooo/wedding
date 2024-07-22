@@ -23,10 +23,6 @@ class WebAppLayout extends StatelessWidget {
                 minHeight: MediaQuery.of(context).size.height,
               ),
               child: Scaffold(
-                appBar: AppBar(
-                  systemOverlayStyle: SystemUiOverlayStyle.light,
-                  backgroundColor: Colors.transparent,
-                ),
                 body: Container(
                   height: double.infinity,
                   decoration: BoxDecoration(
