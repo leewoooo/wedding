@@ -41,7 +41,7 @@ class Footer extends StatelessWidget {
             onPressed: () async {
               await Clipboard.setData(
                 const ClipboardData(
-                  text: 'https://leewoooo.github.io/wedding/',
+                  text: 'https://leewoooo.github.io/wedding/#',
                 ),
               ).then(
                 (_) {
