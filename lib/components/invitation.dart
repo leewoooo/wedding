@@ -4,6 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:wedding/components/commons/gap.dart';
 import 'package:wedding/components/commons/header_text.dart';
 import 'package:wedding/constants/color.dart';
+import 'package:wedding/models/contact_address_model.dart';
 
 class Invitation extends StatelessWidget {
   final String backgroundImage = 'assets/images/paper_background_2.jpg';
@@ -181,126 +182,166 @@ class _ContactButton extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Builder(builder: (context) {
-          return FilledButton(
-            style: FilledButton.styleFrom(
-              backgroundColor: PRIMARY_COLOR,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0),
-              ),
+        FilledButton(
+          style: FilledButton.styleFrom(
+            backgroundColor: PRIMARY_COLOR,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
             ),
-            onPressed: () {
-              showCupertinoDialog(
-                useRootNavigator: true,
-                barrierDismissible: true,
-                context: context,
-                builder: (context) {
-                  return Dialog(
-                    child: Container(
-                      constraints: const BoxConstraints(
-                        maxWidth: 430,
-                        minWidth: 344,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.grey[100],
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      padding: const EdgeInsets.all(
-                        16.0,
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const Text(
-                            '연락하기',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16.0,
-                              color: PRIMARY_COLOR,
-                            ),
-                          ),
-                          const Divider(),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8.0,
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const Expanded(
-                                  child: Text(
-                                    '신랑',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: PRIMARY_COLOR,
-                                    ),
-                                  ),
-                                ),
-                                const Expanded(
-                                  child: Text(
-                                    '이우길',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      InkWell(
-                                        onTap: () async {
-                                          final Uri telLaunchUri = Uri(
-                                            scheme: 'sms',
-                                            path: '01066832285',
-                                          );
-                                          await launchUrl(telLaunchUri);
-                                        },
-                                        child: const Icon(
-                                          Icons.mail_rounded,
-                                          color: PRIMARY_COLOR,
-                                        ),
-                                      ),
-                                      MediaQuery.of(context).size.width > 350
-                                          ? Gap.w16
-                                          : Gap.w8,
-                                      InkWell(
-                                        onTap: () async {
-                                          final Uri telLaunchUri = Uri(
-                                            scheme: 'tel',
-                                            path: '01066832285',
-                                          );
-                                          await launchUrl(telLaunchUri);
-                                        },
-                                        child: const Icon(
-                                          Icons.phone,
-                                          color: PRIMARY_COLOR,
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              );
-            },
-            child: const Padding(
-              padding: EdgeInsets.symmetric(
-                vertical: 16.0,
-              ),
-              child: Text('연락하기'),
+          ),
+          onPressed: () {
+            _showAddressModal(context);
+          },
+          child: const Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: 16.0,
             ),
-          );
-        }),
+            child: Text('연락하기'),
+          ),
+        ),
       ],
+    );
+  }
+
+  Future<dynamic> _showAddressModal(BuildContext context) {
+    return showCupertinoDialog(
+      useRootNavigator: true,
+      barrierDismissible: true,
+      context: context,
+      builder: (context) {
+        return Dialog(
+          child: Container(
+            constraints: const BoxConstraints(
+              maxWidth: 430,
+              minWidth: 344,
+            ),
+            decoration: BoxDecoration(
+              color: Colors.grey[100],
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            padding: const EdgeInsets.all(
+              16.0,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text(
+                  '연락하기',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16.0,
+                    color: PRIMARY_COLOR,
+                  ),
+                ),
+                const Divider(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8.0,
+                  ),
+                  child: Column(
+                    children: [
+                      ...groomContactAddresses.map(
+                        (it) => _AddressTile.fromModel(model: it),
+                      ),
+                      const Divider(),
+                      ...brideContactAddresses.map(
+                        (it) => _AddressTile.fromModel(model: it),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _AddressTile extends StatelessWidget {
+  final String division;
+  final String name;
+  final String phone;
+
+  const _AddressTile({
+    required this.division,
+    required this.name,
+    required this.phone,
+  });
+
+  factory _AddressTile.fromModel({required ContactAddressModel model}) {
+    return _AddressTile(
+      division: model.division,
+      name: model.name,
+      phone: model.phone,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        vertical: 8.0,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: Text(
+              division,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: PRIMARY_COLOR,
+              ),
+            ),
+          ),
+          Expanded(
+            child: Text(
+              name,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                InkWell(
+                  onTap: () async {
+                    final Uri telLaunchUri = Uri(
+                      scheme: 'sms',
+                      path: phone,
+                    );
+                    await launchUrl(telLaunchUri);
+                  },
+                  child: const Icon(
+                    Icons.mail_rounded,
+                    color: PRIMARY_COLOR,
+                  ),
+                ),
+                Gap.w12,
+                InkWell(
+                  onTap: () async {
+                    final Uri telLaunchUri = Uri(
+                      scheme: 'tel',
+                      path: phone,
+                    );
+                    await launchUrl(telLaunchUri);
+                  },
+                  child: const Icon(
+                    Icons.phone,
+                    color: PRIMARY_COLOR,
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
