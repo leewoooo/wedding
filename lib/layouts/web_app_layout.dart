@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 
 class WebAppLayout extends StatelessWidget {
   final Widget child;
@@ -23,6 +21,11 @@ class WebAppLayout extends StatelessWidget {
                 minHeight: MediaQuery.of(context).size.height,
               ),
               child: Scaffold(
+                extendBodyBehindAppBar: true,
+                appBar: AppBar(
+                  backgroundColor: Colors.transparent,
+                  elevation: 0,
+                ),
                 body: Container(
                   height: double.infinity,
                   decoration: BoxDecoration(
