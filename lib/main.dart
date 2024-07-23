@@ -24,7 +24,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
+      statusBarColor: Colors.white, // 상태 표시줄의 배경 색상
+      statusBarIconBrightness: Brightness.dark, // 상태 표시줄 아이콘의 밝기 (어두운 색상)
+      systemNavigationBarColor: Colors.white, // 시스템 네비게이션 바의 배경 색상
+      systemNavigationBarIconBrightness: Brightness.dark, // 시스템 네비게이션 바 아이콘의 밝기 (어두운 색상)
+    ));
+    
     return MaterialApp(
       title: '우길 & 은하 결혼해요',
       theme: ThemeData(
