@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class WebAppLayout extends StatelessWidget {
   final Widget child;
@@ -25,6 +26,9 @@ class WebAppLayout extends StatelessWidget {
                 appBar: AppBar(
                   backgroundColor: Colors.transparent,
                   elevation: 0,
+                  systemOverlayStyle: const SystemUiOverlayStyle(
+                    statusBarColor: Colors.white,
+                  ),
                 ),
                 body: Container(
                   height: double.infinity,
