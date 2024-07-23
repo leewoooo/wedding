@@ -19,15 +19,14 @@ class Gallery extends StatelessWidget {
           Gap.h16,
           GridView.count(
             physics: const NeverScrollableScrollPhysics(),
+            padding: EdgeInsets.zero,
             shrinkWrap: true,
             crossAxisCount: 3,
             mainAxisSpacing: 12.0,
             crossAxisSpacing: 12.0,
             childAspectRatio: 3 / 2,
             children: List<int>.generate(15, (int index) => index + 1)
-                .map(
-                  (index) => _GalleryImage(index: index),
-                )
+                .map((index) => _GalleryImage(index: index))
                 .toList(),
           )
         ],
@@ -44,7 +43,6 @@ class _GalleryImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final asset = 'assets/images/grid_asset_$index.jpeg';
     return InkWell(
       onTap: () {
         showDialog(
@@ -53,19 +51,60 @@ class _GalleryImage extends StatelessWidget {
           barrierLabel: 'barrierLabel',
           barrierDismissible: true,
           builder: (context) {
-            return Dialog(
-              child: Image.asset(
-                asset,
-                fit: BoxFit.cover,
-                filterQuality: FilterQuality.high,
-              ),
+            int showIndex = index;
+            return StatefulBuilder(
+              builder: (context, setState) {
+                return Dialog(
+                  backgroundColor: Colors.transparent,
+                  surfaceTintColor: Colors.transparent,
+                  insetPadding: EdgeInsets.zero,
+                  child: Row(
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          var nextIndex = showIndex - 1;
+                          if (nextIndex <= 0) nextIndex = 15;
+                          setState(() => showIndex = nextIndex);
+                        },
+                        icon: const Icon(
+                          Icons.keyboard_arrow_left,
+                          color: Colors.white,
+                        ),
+                        visualDensity: VisualDensity.compact,
+                      ),
+                      Expanded(
+                        child: Image.asset(
+                          'assets/images/grid_asset_$showIndex.jpeg',
+                          fit: BoxFit.cover,
+                          filterQuality: FilterQuality.high,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          var nextIndex = showIndex + 1;
+                          if (nextIndex > 15) nextIndex = 1;
+                          setState(() => showIndex = nextIndex);
+                        },
+                        icon: const Icon(
+                          Icons.keyboard_arrow_right,
+                          color: Colors.white,
+                        ),
+                        visualDensity: VisualDensity.compact,
+                      ),
+                    ],
+                  ),
+                );
+              },
             );
           },
         );
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8.0),
-        child: Image.asset(asset, fit: BoxFit.cover),
+        child: Image.asset(
+          'assets/images/grid_asset_$index.jpeg',
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }
