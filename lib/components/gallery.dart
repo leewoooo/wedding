@@ -48,8 +48,6 @@ class _GalleryImage extends StatelessWidget {
         showDialog(
           context: context,
           useRootNavigator: true,
-          barrierLabel: 'barrierLabel',
-          barrierDismissible: true,
           builder: (context) {
             int showIndex = index;
             return StatefulBuilder(
@@ -58,40 +56,52 @@ class _GalleryImage extends StatelessWidget {
                   backgroundColor: Colors.transparent,
                   surfaceTintColor: Colors.transparent,
                   insetPadding: EdgeInsets.zero,
-                  child: Row(
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          var nextIndex = showIndex - 1;
-                          if (nextIndex <= 0) nextIndex = 15;
-                          setState(() => showIndex = nextIndex);
-                        },
-                        icon: const Icon(
-                          Icons.keyboard_arrow_left,
-                          color: Colors.white,
+                  child: GestureDetector(
+                    onTap: () => Navigator.pop(context),
+                    child: Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.center,
+                          child: Image.asset(
+                            'assets/images/grid_asset_$showIndex.jpeg',
+                            fit: BoxFit.cover,
+                            filterQuality: FilterQuality.high,
+                          ),
                         ),
-                        visualDensity: VisualDensity.compact,
-                      ),
-                      Expanded(
-                        child: Image.asset(
-                          'assets/images/grid_asset_$showIndex.jpeg',
-                          fit: BoxFit.cover,
-                          filterQuality: FilterQuality.high,
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: IconButton(
+                            onPressed: () {
+                              var nextIndex = showIndex - 1;
+                              if (nextIndex <= 0) nextIndex = 15;
+                              setState(() => showIndex = nextIndex);
+                            },
+                            icon: const Icon(
+                              Icons.keyboard_arrow_left,
+                              color: Colors.white,
+                              size: 32.0,
+                            ),
+                            visualDensity: VisualDensity.compact,
+                          ),
                         ),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          var nextIndex = showIndex + 1;
-                          if (nextIndex > 15) nextIndex = 1;
-                          setState(() => showIndex = nextIndex);
-                        },
-                        icon: const Icon(
-                          Icons.keyboard_arrow_right,
-                          color: Colors.white,
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: IconButton(
+                            onPressed: () {
+                              var nextIndex = showIndex + 1;
+                              if (nextIndex > 15) nextIndex = 1;
+                              setState(() => showIndex = nextIndex);
+                            },
+                            icon: const Icon(
+                              Icons.keyboard_arrow_right,
+                              color: Colors.white,
+                              size: 32.0,
+                            ),
+                            visualDensity: VisualDensity.compact,
+                          ),
                         ),
-                        visualDensity: VisualDensity.compact,
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 );
               },
