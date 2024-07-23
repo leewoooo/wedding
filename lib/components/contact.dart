@@ -84,7 +84,6 @@ class _FamilyContact extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             RichText(
               text: TextSpan(
@@ -105,14 +104,9 @@ class _FamilyContact extends StatelessWidget {
                 ],
               ),
             ),
-            const Icon(
-              Icons.keyboard_arrow_down_sharp,
-            ),
           ],
         ),
-        const Divider(
-          color: Colors.black,
-        ),
+        const Divider(),
         Gap.h8,
         ...accountInfoList.map((it) => _AccountTile.fromModel(model: it)),
       ],
