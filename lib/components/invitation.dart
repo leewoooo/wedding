@@ -131,6 +131,7 @@ class _HeroInfo extends StatelessWidget {
               '$division\t',
               style: defaultTextStyle.copyWith(
                 fontWeight: FontWeight.bold,
+                color: PRIMARY_COLOR,
               ),
             ),
             Text(
