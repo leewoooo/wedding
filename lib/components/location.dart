@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:wedding/components/commons/gap.dart';
 import 'package:wedding/components/commons/header_text.dart';
-import 'package:wedding/constants/color.dart';
 
 class Location extends StatelessWidget {
   const Location({super.key});
@@ -11,8 +10,10 @@ class Location extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey[100],
-      padding: const EdgeInsets.all(32.0),
+      padding: const EdgeInsets.symmetric(
+        vertical: 32.0,
+        horizontal: 32.0,
+      ),
       child: const Column(
         children: [
           _Header(),
@@ -86,7 +87,6 @@ class _TransportInfos extends StatelessWidget {
       style: const TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 16.0,
-        color: Colors.black,
       ),
     );
   }
@@ -98,7 +98,6 @@ class _TransportInfos extends StatelessWidget {
       title,
       style: const TextStyle(
         fontWeight: FontWeight.bold,
-        color: Colors.black,
       ),
     );
   }
@@ -109,12 +108,7 @@ class _TransportInfos extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          info,
-          style: const TextStyle(
-            color: Colors.black,
-          ),
-        ),
+        Text(info),
         Gap.h4,
       ],
     );
@@ -130,17 +124,13 @@ class _Header extends StatelessWidget {
 
     return Column(
       children: [
-        const HeaderText(
-          text: '오시는 길',
-          color: PRIMARY_COLOR,
-        ),
+        const HeaderText(text: '오시는 길'),
         Gap.h16,
         const Text(
           '신도림 웨딩시티 (테크노마트 건물 8층)',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 16.0,
-            color: Colors.black,
           ),
         ),
         Gap.h8,
@@ -174,10 +164,6 @@ class _Map extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const defaultTextStyle = TextStyle(
-      color: Colors.black,
-    );
-
     const naverAddress =
         'https://map.naver.com/p/directions/-/14125329.418654,4510050.8743174,%ED%85%8C%ED%81%AC%EB%85%B8%EB%A7%88%ED%8A%B8%20%EC%9B%A8%EB%94%A9%EC%8B%9C%ED%8B%B0,12867934,PLACE_POI/-/transit?c=15.00,0,0,0,dh';
     onTapNaverMap() async => await launchUrl(Uri.parse(naverAddress));
@@ -198,8 +184,6 @@ class _Map extends StatelessWidget {
         ),
         child: Column(
           children: [
-            const Divider(),
-            Gap.h8,
             ClipRRect(
               borderRadius: BorderRadius.circular(16.0),
               child: Image.asset(
@@ -218,7 +202,6 @@ class _Map extends StatelessWidget {
                       child: const Text(
                         '카카오 맵',
                         textAlign: TextAlign.center,
-                        style: defaultTextStyle,
                       ),
                     ),
                   ),
@@ -229,7 +212,6 @@ class _Map extends StatelessWidget {
                       child: const Text(
                         '네이버 지도',
                         textAlign: TextAlign.center,
-                        style: defaultTextStyle,
                       ),
                     ),
                   ),
@@ -240,15 +222,12 @@ class _Map extends StatelessWidget {
                       child: const Text(
                         '구글 맵',
                         textAlign: TextAlign.center,
-                        style: defaultTextStyle,
                       ),
                     ),
                   ),
                 ],
               ),
             ),
-            Gap.h8,
-            const Divider(),
           ],
         ),
       ),

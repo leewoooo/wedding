@@ -11,7 +11,10 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      padding: const EdgeInsets.all(32.0),
+      padding: const EdgeInsets.symmetric(
+        vertical: 32.0,
+        horizontal: 32.0,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -21,19 +24,18 @@ class Footer extends StatelessWidget {
                 'assets/icons/icon_1.png',
                 width: 30.0,
               ),
-              Gap.h4,
+              Gap.h16,
               const Text(
                 '화환은 정중히 사양하겠습니다.\n축하해주시는 마음만 감사히 받겠습니다.',
                 textAlign: TextAlign.center,
+                style: TextStyle(fontWeight: FontWeight.w700),
               ),
             ],
           ),
-          Gap.h16,
-          const Divider(),
-          Gap.h16,
+          Gap.h32,
           FilledButton(
             style: FilledButton.styleFrom(
-              backgroundColor: PRIMARY_COLOR,
+              backgroundColor: FILL_COLOR,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.0),
               ),
@@ -61,7 +63,7 @@ class Footer extends StatelessWidget {
                 const Icon(
                   CupertinoIcons.link,
                   size: 16.0,
-                  color: Colors.white,
+                  color: GREY_COLOR,
                 ),
                 Gap.w8,
                 const Padding(
@@ -70,6 +72,10 @@ class Footer extends StatelessWidget {
                   ),
                   child: Text(
                     '청첩장 링크 복사',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      color: GREY_COLOR2,
+                    ),
                   ),
                 ),
               ],
@@ -81,7 +87,6 @@ class Footer extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               fontStyle: FontStyle.italic,
-              color: Colors.black,
             ),
           ),
           Gap.h32,

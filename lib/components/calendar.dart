@@ -10,19 +10,18 @@ class Calendar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey[100],
-      padding: const EdgeInsets.all(32.0),
+      color: PRIMARY_COLOR,
+      padding: const EdgeInsets.symmetric(
+        vertical: 32.0,
+        horizontal: 32.0,
+      ),
       child: Column(
         children: [
-          const HeaderText(
-            text: '2024.09.07',
-            color: PRIMARY_COLOR,
-          ),
+          const HeaderText(text: '2024.09.07'),
           Gap.h4,
           const Text(
             '토요일 오후 4시 50분',
             style: TextStyle(
-              color: Colors.black,
               fontSize: 16.0,
             ),
           ),

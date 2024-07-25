@@ -55,7 +55,7 @@ class CustomTableCalendar extends StatelessWidget {
     return CalendarStyle(
       // 선택된 날짜 스타일
       selectedDecoration: dayDecoration.copyWith(
-        color: PRIMARY_COLOR,
+        color: FILL_COLOR,
       ),
       selectedTextStyle: dayTextStyle,
       outsideDaysVisible: false,
@@ -66,8 +66,6 @@ class CustomTableCalendar extends StatelessWidget {
     TextStyle defaultTextStyle(DateTime day) => TextStyle(
           fontWeight: day.weekday == DateTime.saturday ? FontWeight.w700 : null,
           fontSize: 14.0,
-          color:
-              day.weekday == DateTime.saturday ? PRIMARY_COLOR : Colors.black,
         );
 
     Container defaultShapeContainer(Widget child, {Color? color}) {
@@ -111,9 +109,9 @@ class CustomTableCalendar extends StatelessWidget {
       selectedBuilder: (context, day, focusedDay) => Center(
         child: defaultShapeContainer(
           Center(
-            child: defaultDayText(day, color: Colors.white, isBold: true),
+            child: defaultDayText(day, color: PRIMARY_COLOR, isBold: true),
           ),
-          color: PRIMARY_COLOR,
+          color: GREY_COLOR2,
         ),
       ),
       outsideBuilder: (context, day, focusedDay) => Center(

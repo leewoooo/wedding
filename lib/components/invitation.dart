@@ -13,19 +13,14 @@ class Invitation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(32.0),
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(backgroundImage),
-          fit: BoxFit.cover,
-        ),
+      color: PRIMARY_COLOR,
+      padding: const EdgeInsets.symmetric(
+        vertical: 32.0,
+        horizontal: 32.0,
       ),
       child: Column(
         children: [
-          const HeaderText(
-            text: '초대합니다',
-            color: PRIMARY_COLOR,
-          ),
+          const HeaderText(text: '초대합니다'),
           Gap.h16,
           const _ThanksText(),
           const _SubImage(),
@@ -88,9 +83,7 @@ class _HeroInfos extends StatelessWidget {
               familyInfo: '이필주 · 송효숙 의 장남',
             ),
           ),
-          VerticalDivider(
-            color: Colors.black,
-          ),
+          VerticalDivider(color: GREY_COLOR2),
           Expanded(
             child: _HeroInfo(
               division: '신부',
@@ -117,10 +110,6 @@ class _HeroInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const defaultTextStyle = TextStyle(
-      color: Colors.black,
-    );
-
     return Column(
       children: [
         Row(
@@ -129,16 +118,16 @@ class _HeroInfo extends StatelessWidget {
           children: [
             Text(
               '$division\t',
-              style: defaultTextStyle.copyWith(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
-                color: PRIMARY_COLOR,
               ),
             ),
             Text(
               name,
-              style: defaultTextStyle.copyWith(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18.0,
+                color: Colors.black,
               ),
             ),
           ],
@@ -146,7 +135,7 @@ class _HeroInfo extends StatelessWidget {
         Gap.h8,
         Text(
           familyInfo,
-          style: defaultTextStyle.copyWith(
+          style: const TextStyle(
             fontSize: 12.0,
           ),
         )
@@ -167,7 +156,7 @@ class _SubImage extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16.0),
         child: Image.asset(
-          'assets/images/asset_01.jpg',
+          'assets/images/asset_01_1.jpeg',
           fit: BoxFit.cover,
         ),
       ),
@@ -185,7 +174,7 @@ class _ContactButton extends StatelessWidget {
       children: [
         FilledButton(
           style: FilledButton.styleFrom(
-            backgroundColor: PRIMARY_COLOR,
+            backgroundColor: FILL_COLOR,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0),
             ),
@@ -197,7 +186,13 @@ class _ContactButton extends StatelessWidget {
             padding: EdgeInsets.symmetric(
               vertical: 16.0,
             ),
-            child: Text('연락하기'),
+            child: Text(
+              '연락하기',
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+                color: GREY_COLOR2,
+              ),
+            ),
           ),
         ),
       ],
@@ -231,7 +226,6 @@ class _ContactButton extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16.0,
-                    color: PRIMARY_COLOR,
                   ),
                 ),
                 const Divider(),
@@ -293,7 +287,6 @@ class _AddressTile extends StatelessWidget {
               division,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
-                color: PRIMARY_COLOR,
               ),
             ),
           ),
@@ -302,7 +295,6 @@ class _AddressTile extends StatelessWidget {
               name,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Colors.black,
               ),
               textAlign: TextAlign.center,
             ),
@@ -324,7 +316,6 @@ class _AddressTile extends StatelessWidget {
                   },
                   child: const Icon(
                     Icons.mail_rounded,
-                    color: PRIMARY_COLOR,
                   ),
                 ),
                 Gap.w12,
@@ -341,7 +332,6 @@ class _AddressTile extends StatelessWidget {
                   },
                   child: const Icon(
                     Icons.phone,
-                    color: PRIMARY_COLOR,
                   ),
                 )
               ],
