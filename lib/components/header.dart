@@ -8,9 +8,11 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 32.0,
-        vertical: 32.0,
+      padding: const EdgeInsets.fromLTRB(
+        32.0,
+        64.0,
+        32.0,
+        32.0,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -20,7 +22,7 @@ class Header extends StatelessWidget {
             style: TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 22.0,
-              color: PRIMARY_COLOR,
+              color: GREY_COLOR2,
             ),
           ),
           Gap.h16,
@@ -29,7 +31,7 @@ class Header extends StatelessWidget {
             style: TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 14.0,
-              color: PRIMARY_COLOR,
+              color: GREY_COLOR2,
             ),
           ),
           Gap.h8,
@@ -38,7 +40,7 @@ class Header extends StatelessWidget {
             style: TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 12.0,
-              color: PRIMARY_COLOR,
+              color: GREY_COLOR2,
             ),
           ),
         ],

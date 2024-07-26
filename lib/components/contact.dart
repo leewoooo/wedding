@@ -12,13 +12,13 @@ class Contact extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      padding: const EdgeInsets.all(32.0),
+      padding: const EdgeInsets.symmetric(
+        vertical: 32.0,
+        horizontal: 32.0,
+      ),
       child: Column(
         children: [
-          const HeaderText(
-            text: '마음 전하기',
-            color: PRIMARY_COLOR,
-          ),
+          const HeaderText(text: '마음 전하기'),
           Gap.h16,
           const _UnderstandingText(),
           Gap.h32,
@@ -44,19 +44,14 @@ class _UnderstandingText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const defaultTextStyle = TextStyle(
-      color: Colors.black,
-    );
     return Column(
       children: [
         const Text(
           '참석이 어려우신 분들을 위해 기재하였습니다.',
-          style: defaultTextStyle,
         ),
         Gap.h4,
         const Text(
           '너그러운 마음으로 양해부탁드리겠습니다.',
-          style: defaultTextStyle,
         ),
       ],
     );
@@ -76,10 +71,6 @@ class _FamilyContact extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const defaultTextStyle = TextStyle(
-      color: Colors.black,
-    );
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -88,15 +79,14 @@ class _FamilyContact extends StatelessWidget {
             RichText(
               text: TextSpan(
                 text: '$division\t\t',
-                style: defaultTextStyle.copyWith(
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 10.0,
-                  color: PRIMARY_COLOR,
                 ),
                 children: [
                   TextSpan(
                     text: name,
-                    style: defaultTextStyle.copyWith(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 14.0,
                     ),
@@ -140,7 +130,6 @@ class _AccountTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final defaultTextStyle = TextStyle(
       fontSize: MediaQuery.of(context).size.width > 350 ? 14.0 : 12.0,
-      color: Colors.black,
     );
 
     return ListTile(

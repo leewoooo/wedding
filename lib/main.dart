@@ -7,6 +7,7 @@ import 'package:wedding/components/gallery.dart';
 import 'package:wedding/components/header.dart';
 import 'package:wedding/components/invitation.dart';
 import 'package:wedding/components/location.dart';
+import 'package:wedding/constants/color.dart';
 import 'package:wedding/layouts/web_app_layout.dart';
 
 void main() async {
@@ -27,6 +28,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: false,
         fontFamily: 'NanumMyeongjo',
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(
+            color: GREY_COLOR2,
+          ),
+        ),
       ),
       debugShowCheckedModeBanner: false,
       home: const Home(),
@@ -65,8 +71,9 @@ class _MainImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cuteString = Uri.base.queryParameters['cute'];
     return Image.asset(
-      'assets/images/asset_02.jpg',
+      'assets/images/asset_02_${cuteString != null ? '2' : '1'}.jpeg',
       fit: BoxFit.cover,
     );
   }
