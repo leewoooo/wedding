@@ -107,7 +107,12 @@ class _FamilyContactState extends State<_FamilyContact> {
               body: Column(
                 children: widget.accountInfoList
                     .map(
-                      (it) => _AccountTile.fromModel(model: it),
+                      (it) => Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8.0,
+                        ),
+                        child: _AccountTile.fromModel(model: it),
+                      ),
                     )
                     .toList(),
               ),
