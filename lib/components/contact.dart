@@ -84,7 +84,6 @@ class _FamilyContactState extends State<_FamilyContact> {
       children: [
         ExpansionPanelList(
           elevation: 0,
-          expandedHeaderPadding: EdgeInsets.zero,
           expandIconColor: Colors.black,
           expansionCallback: (_, isExpanded) => toggleExpand(isExpanded),
           animationDuration: const Duration(milliseconds: 500),
@@ -108,12 +107,7 @@ class _FamilyContactState extends State<_FamilyContact> {
               body: Column(
                 children: widget.accountInfoList
                     .map(
-                      (it) => Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16.0,
-                        ),
-                        child: _AccountTile.fromModel(model: it),
-                      ),
+                      (it) => _AccountTile.fromModel(model: it),
                     )
                     .toList(),
               ),
@@ -157,7 +151,7 @@ class _AccountTile extends StatelessWidget {
       contentPadding: EdgeInsets.zero,
       minLeadingWidth: 0,
       leading: CircleAvatar(
-        maxRadius: 14.0,
+        radius: 14.0,
         backgroundColor: GREY_COLOR,
         foregroundColor: GREY_COLOR,
         child: Text(
