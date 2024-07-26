@@ -83,6 +83,7 @@ class _FamilyContactState extends State<_FamilyContact> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         ExpansionPanelList(
+          expandedHeaderPadding: EdgeInsets.zero,
           elevation: 0,
           expandIconColor: Colors.black,
           expansionCallback: (_, isExpanded) => toggleExpand(isExpanded),
