@@ -9,8 +9,20 @@ if (!window._flutter) {
 _flutter.buildConfig = {"engineRevision":"235db911ba279722f5e685f38b0ed30fa7e8570a","builds":[{"compileTarget":"dart2js","renderer":"auto","mainJsPath":"main.dart.js"}]};
 
 
+
+const loadingDiv = document.createElement("div");
+loadingDiv.className = "loading";
+document.body.appendChild(loadingDiv);
+const loaderDiv = document.createElement("div");
+loaderDiv.className = "loader";
+loadingDiv.appendChild(loaderDiv);
+
 _flutter.loader.load({
-  serviceWorkerSettings: {
-    serviceWorkerVersion: "1213535384"
-  }
+    onEntrypointLoaded: async function (engineInitializer) {
+        const appRunner = await engineInitializer.initializeEngine();
+        if (document.body.contains(loadingDiv)) {
+            document.body.removeChild(loadingDiv);
+        }
+        await appRunner.runApp();
+    },
 });
