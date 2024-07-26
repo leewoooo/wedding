@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:wedding/components/commons/gap.dart';
 import 'package:wedding/components/commons/header_text.dart';
+import 'package:wedding/constants/color.dart';
 
 class Location extends StatelessWidget {
   const Location({super.key});
@@ -10,6 +11,7 @@ class Location extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: PRIMARY_COLOR,
       padding: const EdgeInsets.symmetric(
         vertical: 32.0,
         horizontal: 32.0,

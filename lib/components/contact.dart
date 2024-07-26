@@ -27,7 +27,7 @@ class Contact extends StatelessWidget {
             name: '이우길',
             accountInfoList: groomFamilyInfo,
           ),
-          Gap.h32,
+          Gap.h16,
           _FamilyContact(
             division: '신부',
             name: '임은하',
@@ -58,7 +58,7 @@ class _UnderstandingText extends StatelessWidget {
   }
 }
 
-class _FamilyContact extends StatelessWidget {
+class _FamilyContact extends StatefulWidget {
   final String division;
   final String name;
   final List<AccountTileModel> accountInfoList;
@@ -70,35 +70,56 @@ class _FamilyContact extends StatelessWidget {
   });
 
   @override
+  State<_FamilyContact> createState() => _FamilyContactState();
+}
+
+class _FamilyContactState extends State<_FamilyContact> {
+  bool isExPanded = false;
+  toggleExpand(bool value) => setState(() => isExPanded = value);
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Row(
+        ExpansionPanelList(
+          elevation: 0,
+          expandedHeaderPadding: EdgeInsets.zero,
+          expandIconColor: Colors.black,
+          expansionCallback: (_, isExpanded) => toggleExpand(isExpanded),
+          animationDuration: const Duration(milliseconds: 500),
           children: [
-            RichText(
-              text: TextSpan(
-                text: '$division\t\t',
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 10.0,
-                ),
+            ExpansionPanel(
+              canTapOnHeader: true,
+              isExpanded: isExPanded,
+              backgroundColor: PRIMARY_COLOR,
+              headerBuilder: (context, isExpanded) => Row(
                 children: [
-                  TextSpan(
-                    text: name,
+                  Gap.w16,
+                  Text(
+                    '${widget.division}측 계좌번호',
                     style: const TextStyle(
-                      fontWeight: FontWeight.bold,
                       fontSize: 14.0,
+                      color: Colors.black,
                     ),
                   ),
                 ],
               ),
+              body: Column(
+                children: widget.accountInfoList
+                    .map(
+                      (it) => Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16.0,
+                        ),
+                        child: _AccountTile.fromModel(model: it),
+                      ),
+                    )
+                    .toList(),
+              ),
             ),
           ],
         ),
-        const Divider(),
-        Gap.h8,
-        ...accountInfoList.map((it) => _AccountTile.fromModel(model: it)),
       ],
     );
   }
@@ -129,7 +150,7 @@ class _AccountTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final defaultTextStyle = TextStyle(
-      fontSize: MediaQuery.of(context).size.width > 350 ? 14.0 : 12.0,
+      fontSize: MediaQuery.of(context).size.width > 380 ? 14.0 : 12.0,
     );
 
     return ListTile(
@@ -156,12 +177,27 @@ class _AccountTile extends StatelessWidget {
             ),
           ),
           Gap.w8,
-          Text(bankName, style: defaultTextStyle),
-          Gap.w8,
-          Text(
-            accountNumber,
-            style: defaultTextStyle,
-          ),
+          MediaQuery.of(context).size.width < 380
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(bankName, style: defaultTextStyle),
+                    Text(
+                      accountNumber,
+                      style: defaultTextStyle,
+                    )
+                  ],
+                )
+              : Row(
+                  children: [
+                    Text(bankName, style: defaultTextStyle),
+                    Gap.w8,
+                    Text(
+                      accountNumber,
+                      style: defaultTextStyle,
+                    )
+                  ],
+                ),
         ],
       ),
       trailing: InkWell(
