@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wedding/components/commons/gap.dart';
 import 'package:wedding/components/commons/header_text.dart';
+import 'package:wedding/constants/color.dart';
 
 class Gallery extends StatelessWidget {
   const Gallery({super.key});
@@ -8,10 +9,8 @@ class Gallery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        vertical: 32.0,
-        horizontal: 32.0,
-      ),
+      color: PRIMARY_COLOR,
+      padding: const EdgeInsets.all(32.0),
       child: Column(
         children: [
           const HeaderText(text: '갤러리'),

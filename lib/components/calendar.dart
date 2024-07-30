@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:wedding/components/commons/custom_table_calendar.dart';
 import 'package:wedding/components/commons/gap.dart';
 import 'package:wedding/components/commons/header_text.dart';
-import 'package:wedding/constants/color.dart';
 
 class Calendar extends StatelessWidget {
   const Calendar({super.key});
@@ -10,7 +9,7 @@ class Calendar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: PRIMARY_COLOR,
+      color: Colors.white,
       padding: const EdgeInsets.symmetric(
         vertical: 32.0,
         horizontal: 32.0,

@@ -54,10 +54,10 @@ class Home extends StatelessWidget {
             Header(),
             _MainImage(),
             Invitation(),
+            Calendar(),
             Gallery(),
             Location(),
             Contact(),
-            Calendar(),
             Footer()
           ],
         ),

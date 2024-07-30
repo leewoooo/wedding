@@ -11,7 +11,7 @@ class Contact extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: PRIMARY_COLOR,
       padding: const EdgeInsets.symmetric(
         vertical: 32.0,
         horizontal: 32.0,
@@ -92,7 +92,7 @@ class _FamilyContactState extends State<_FamilyContact> {
             ExpansionPanel(
               canTapOnHeader: true,
               isExpanded: isExPanded,
-              backgroundColor: PRIMARY_COLOR,
+              backgroundColor: Colors.white,
               headerBuilder: (context, isExpanded) => Row(
                 children: [
                   Gap.w16,
