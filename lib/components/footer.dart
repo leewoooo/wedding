@@ -11,10 +11,7 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      padding: const EdgeInsets.symmetric(
-        vertical: 32.0,
-        horizontal: 32.0,
-      ),
+      padding: const EdgeInsets.all(32.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -81,12 +78,13 @@ class Footer extends StatelessWidget {
               ],
             ),
           ),
-          Gap.h16,
+          Gap.h32,
           const Text(
             'made by 우길 & 은하',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontStyle: FontStyle.italic,
+              fontSize: 12.0,
             ),
           ),
           Gap.h32,
