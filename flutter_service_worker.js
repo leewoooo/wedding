@@ -44,7 +44,7 @@ const RESOURCES = {"icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb0489
 "assets/NOTICES": "eeb2ffd49640ab7cf7bf310143506522",
 "index.html": "c0d30aaf1ea350f622baec08d25e0c20",
 "/": "c0d30aaf1ea350f622baec08d25e0c20",
-"main.dart.js": "be9b423b11ec950ac1cee19939dc6c9b",
+"main.dart.js": "a0d4bcec3da237873b3b0ff7c1f8d92a",
 "version.json": "3d0a8b3e454aa8006e8b32fefcd8e5e3",
 "style.css": "9d4dc81987269f552d7c0fddb886658b",
 "flutter_bootstrap.js": "4e00f6681528e38ffe83268066568a81",
