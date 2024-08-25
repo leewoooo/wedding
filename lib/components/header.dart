@@ -12,8 +12,9 @@ class Header extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            '어느 멋진 가을날,\n우리의 결혼식에 초대합니다.',
+            '어느 멋진 가을날,\n우길&은하 결혼식에 초대합니다.',
             style: TextStyle(
+              height: 1.5,
               fontWeight: FontWeight.w700,
               fontSize: 22.0,
               color: GREY_COLOR2,

@@ -26,7 +26,40 @@ class Calendar extends StatelessWidget {
           ),
           Gap.h32,
           const CustomTableCalendar(),
+          Gap.h16,
+          const Padding(
+            padding: EdgeInsets.only(right: 20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                _DDay(),
+              ],
+            ),
+          )
         ],
+      ),
+    );
+  }
+}
+
+class _DDay extends StatelessWidget {
+  const _DDay();
+
+  @override
+  Widget build(BuildContext context) {
+    final now = DateUtils.dateOnly(DateTime.now());
+    final weddingDay = DateTime(2024, 9, 7);
+
+    final text = weddingDay.isBefore(now)
+        ? '우길&은하 Welcome 유부월드🥳'
+        : '우길&은하 결혼식까지 D-${weddingDay.difference(now).inDays}';
+
+    return Text(
+      text,
+      style: const TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 16.0,
+        color: Colors.black,
       ),
     );
   }
