@@ -56,6 +56,19 @@ class _GalleryImage extends StatelessWidget {
                   insetPadding: EdgeInsets.zero,
                   child: GestureDetector(
                     onTap: () => Navigator.pop(context),
+                    onHorizontalDragEnd: (details) {
+                      // Swiping in right direction.
+                      if (details.velocity.pixelsPerSecond.dx > 0) {
+                        var nextIndex = showIndex - 1;
+                        if (nextIndex <= 0) nextIndex = 15;
+                        setState(() => showIndex = nextIndex);
+                      } else {
+                        // Swiping in left direction.
+                        var nextIndex = showIndex + 1;
+                        if (nextIndex > 15) nextIndex = 1;
+                        setState(() => showIndex = nextIndex);
+                      }
+                    },
                     child: Stack(
                       children: [
                         Align(
